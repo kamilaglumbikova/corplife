@@ -1,5 +1,5 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { ScanerScreen, ScannerCodeScreen, ScannerInputScreen } from "../screens";
+import { DatenschutzScreen, ScanerScreen, ScannerCodeScreen, ScannerInputScreen } from "../screens";
 
 const Stack = createNativeStackNavigator();
 

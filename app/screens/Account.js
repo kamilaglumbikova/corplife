@@ -4,7 +4,7 @@ import { AuthContext } from "../context/AuthContext";
 import { useContext } from "react";
 import { theme } from "../core/theme";
 
-export default function AccountScreen() {
+export default function AccountScreen({navigation}) {
     const { userInfo,logout } = useContext(AuthContext);
     return (
         <SafeAreaView style={styles.container}>
@@ -33,13 +33,13 @@ export default function AccountScreen() {
                     <View style={styles.grayBlock}>
                         <Text style={styles.grayBlockText}>Rechtliches</Text>
                         <View style={styles.grayBlockContainer}>
-                            <Pressable style={styles.pressableBlock} onPress={() => {}}>
+                            <Pressable onPress={()=>navigation.navigate('Datenschutz')} style={styles.pressableBlock}>
                                 <Text style={styles.blue}>Datenschutz</Text>
                             </Pressable>
-                            <Pressable style={styles.pressableBlock} onPress={() => {}}>
+                            <Pressable onPress={()=>navigation.navigate('Agb')} style={styles.pressableBlock}>
                                 <Text style={styles.blue}>AGB</Text>
                             </Pressable>
-                            <Pressable style={{paddingLeft: 20}} onPress={() => {}}>
+                            <Pressable onPress={()=>navigation.navigate('Impressum')} style={{paddingLeft: 20}}>
                                 <Text style={styles.blue}>Impressum</Text>
                             </Pressable>
                         </View>

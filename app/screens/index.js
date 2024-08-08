@@ -5,7 +5,10 @@ import LoginScreen from "./Login";
 import SplashScreen from "./SplashScreen";
 import ScannerInputScreen from "./ScannerInput";
 import ScannerCodeScreen from "./ScannerCode";
+import DatenschutzScreen from "./Datenschutz";
+import AgbScreen from "./Agb";
+import ImpressumScreen from "./Impressum";
 
 export {
-    HomeScreen, AccountScreen, ScanerScreen, LoginScreen,SplashScreen,ScannerInputScreen,ScannerCodeScreen
+    HomeScreen, AccountScreen, ScanerScreen, LoginScreen,SplashScreen,ScannerInputScreen,ScannerCodeScreen,DatenschutzScreen,AgbScreen,ImpressumScreen
 }

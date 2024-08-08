@@ -10,6 +10,7 @@ import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import Entypo from '@expo/vector-icons/Entypo';
 import Navigation from './Navigation';
 import StackNavigator from './StackNavigator';
+import StackNavigatorAccount from './StackNavigatorAccount';
 
 const Tab = createBottomTabNavigator();
 const screenOptions = {
@@ -82,8 +83,8 @@ const NavigationBottom = () => {
           }}
         />
         <Tab.Screen
-          name="Account"
-          component={AccountScreen}
+          name="Tab1"
+          component={StackNavigatorAccount}
           options={{
             tabBarIcon: ({ focused }) => {
               return (
