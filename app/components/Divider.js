@@ -1,4 +1,5 @@
 import { View, StyleSheet } from "react-native"
+import { theme } from "../core/theme"
 
 
 export default function Divider({height}) {
@@ -10,7 +11,7 @@ export default function Divider({height}) {
 const styles = StyleSheet.create({
     divider: {
         width: '100%',
-        backgroundColor: '#dcdcdc',
+        backgroundColor: theme.colors.divider,
         marginTop: 16,
         marginBottom: 16
     }

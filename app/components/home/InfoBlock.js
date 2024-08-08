@@ -2,9 +2,9 @@ import { View, StyleSheet, Text, Image } from "react-native"
 
 import SmallTitle from "../SmallTitle"
 import Divider from "../Divider"
-import Colors from "../../constants/colors"
+import { theme } from "../../core/theme"
 
-export default function InfoBlock() {
+export default function InfoBlock({data}) {
     return (
         <View style={styles.info}>
             <SmallTitle>Angebotsübersicht</SmallTitle>
@@ -14,17 +14,17 @@ export default function InfoBlock() {
                     <Divider height={1} />
                     <View style={[styles.data, { justifyContent: 'space-between', marginBottom: 10 }]}>
                         <View style={[styles.data, { gap: 10 }]}>
-                            <Image source={require('../../assets/voucher_2.png')} style={{ width: 24, height: 17, resizeMode: 'contain' }} />
+                            <Image source={require('../../../assets/voucher_2.png')} style={{ width: 24, height: 17, resizeMode: 'contain' }} />
                             <Text style={{ fontSize: 13 }}>Eingelöste Gutschein</Text>
                         </View>
-                        <Text style={{ fontWeight: 'bold', fontSize: 13 }}>14</Text>
+                        <Text style={{ fontWeight: 'bold', fontSize: 13 }}>{(parseInt(data.total_vouchers)-parseInt(data.pending_vouchers))}</Text>
                     </View>
                     <View style={[styles.data, { justifyContent: 'space-between' }]}>
                         <View style={[styles.data, { gap: 10 }]}>
-                            <Image source={require('../../assets/voucher_1.png')} style={{ width: 24, height: 17, resizeMode: 'contain' }} />
+                            <Image source={require('../../../assets/voucher_1.png')} style={{ width: 24, height: 17, resizeMode: 'contain' }} />
                             <Text style={{ fontSize: 13 }}>Ausstehende Gutschein</Text>
                         </View>
-                        <Text style={{ fontWeight: 'bold', fontSize: 13 }}>7</Text>
+                        <Text style={{ fontWeight: 'bold', fontSize: 13 }}>{parseInt(data.pending_vouchers)}</Text>
                     </View>
                 </View>
                 <View style={styles.bottom}>
@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
         marginTop: 30
     },
     dataInfo: {
-        backgroundColor: '#f2f2f2',
+        backgroundColor: theme.colors.gray,
         marginTop: 25,
         width: '100%',
         borderRadius: 15,
@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row'
     },
     bottom: {
-        backgroundColor: Colors.primary500,
+        backgroundColor: theme.colors.primary500,
         width: '100%',
         borderBottomLeftRadius: 15,
         borderBottomRightRadius: 15,
