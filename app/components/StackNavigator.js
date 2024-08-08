@@ -1,5 +1,5 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { ScanerScreen, ScannerInputScreen } from "../screens";
+import { ScanerScreen, ScannerCodeScreen, ScannerInputScreen } from "../screens";
 
 const Stack = createNativeStackNavigator();
 
@@ -22,6 +22,7 @@ const StackNavigator = () => {
         <Stack.Navigator screenOptions={screenOptions}>
             <Stack.Screen name="Scaner" component={ScanerScreen} />
             <Stack.Screen name="ScannerInput" component={ScannerInputScreen} />
+            <Stack.Screen name="ScannerCode" component={ScannerCodeScreen} />
         </Stack.Navigator>
     );
 };

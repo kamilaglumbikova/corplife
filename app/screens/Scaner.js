@@ -1,9 +1,7 @@
 import React from 'react';
 import {StyleSheet, ScrollView, View, Image, Pressable,Text,Platform, SafeAreaView} from 'react-native';
-import { Link } from 'expo-router';
 import BigTitle from '../components/BigTitle';
 import { theme } from '../core/theme';
-import ScannerInputScreen from './ScannerInput';
 
 
 export default function ScannerScreen({navigation}) {
@@ -21,7 +19,7 @@ export default function ScannerScreen({navigation}) {
                     <Text style={styles.fillButtonText}>Gutschein manuell hinzufügen</Text>
                   </Pressable>
                 <Text style={styles.or}>oder</Text>
-                <Pressable onPress={() => {}} style={styles.borderButton}>
+                <Pressable onPress={()=>navigation.navigate('ScannerCode')} style={styles.borderButton}>
                   <Text style={styles.borderButtonText}>QR-Code scannen</Text>
                 </Pressable>
               </View>

@@ -12,7 +12,7 @@ export default function AccountScreen() {
                 <View style={{ flex: 1, paddingBottom: 100 }}>
                     <BigTitle>Einstellungen</BigTitle>
                     <View style={styles.grayBlock}>
-                        <Text style={styles.grayBlockText}>Kontaktiere uns</Text>
+                        <Text style={styles.grayBlockText}>Maine Daten</Text>
                         <View style={[styles.grayBlockContainer, {paddingHorizontal: 20}]}>
                             <Text style={styles.name}>
                                 {`${userInfo.data.firstname} ${userInfo.data.lastname}`}
