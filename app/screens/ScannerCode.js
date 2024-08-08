@@ -6,7 +6,7 @@ import { BarCodeScanner } from 'expo-barcode-scanner';
 LogBox.ignoreLogs(['Warning: ...']);
 LogBox.ignoreAllLogs();
 
-export default function ScannerCodeScreen() {
+export default function ScannerCodeScreen({navigation}) {
   const [hasPermission, setHasPermission] = useState(null);
   const [scanned, setScanned] = useState(false);
 
@@ -21,7 +21,11 @@ export default function ScannerCodeScreen() {
 
   const handleBarCodeScanned = ({ type, data }) => {
     setScanned(true);
-    alert(`Bar code with type ${type} and data ${data} has been scanned!`);
+    navigation.navigate({
+      name: 'ScannerInput',
+      params: { couponcode: data },
+      merge: true,
+    });
   };
 
   if (hasPermission === null) {
@@ -37,7 +41,6 @@ export default function ScannerCodeScreen() {
         onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
         style={StyleSheet.absoluteFillObject}
       />
-      {scanned && <Button title={'Tap to Scan Again'} onPress={() => setScanned(false)} />}
     </View>
   );
 }

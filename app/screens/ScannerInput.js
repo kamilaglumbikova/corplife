@@ -5,8 +5,10 @@ import { theme } from '../core/theme';
 import { API_URL } from '../utils/api';
 
 
-export default function ScannerInputScreen() {
-  const [code, setCode] = useState('');
+export default function ScannerInputScreen({ route }) {
+  const params = route.params;
+
+  const [code, setCode] = useState(params?.couponcode ? params.couponcode : '');
   const [validMessage, setValidMessage] = useState('');
   const [redeemMessage, setRedeemMessage] = useState('');
   const {userInfo} = useContext(AuthContext);
@@ -50,6 +52,7 @@ export default function ScannerInputScreen() {
         setValidMessage();
         if(responseJson.message) {
           setRedeemMessage(responseJson.message);
+          setCode('')
         }
     })
     .catch((error) => {
