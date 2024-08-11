@@ -14,7 +14,7 @@ export default function HomeScreen() {
                 <View style={{flex: 1,paddingBottom: 100}}>
                     <BigTitle>Übersicht</BigTitle>
                     <ChartBlock data={userInfo.merchant_data} />
-                    <InfoBlock data={userInfo.merchant_data} />
+                    <InfoBlock userData={userInfo} />
                 </View>
             </ScrollView>
         </SafeAreaView>

@@ -6,7 +6,7 @@ const Stack = createNativeStackNavigator();
 const StackNavigator = () => {
     const screenOptions = {
         tabBarShowLabel: false,
-        headerShown: false,
+        headerShown: true,
         tabBarStyle: {
             position: "absolute",
             bottom: 0,
@@ -19,10 +19,10 @@ const StackNavigator = () => {
     }
 
     return (
-        <Stack.Navigator screenOptions={screenOptions}>
-            <Stack.Screen name="Scaner" component={ScanerScreen} />
-            <Stack.Screen name="ScannerInput" component={ScannerInputScreen} />
-            <Stack.Screen name="ScannerCode" component={ScannerCodeScreen} />
+        <Stack.Navigator screenOptions={screenOptions} initialRouteName='Scaner'>
+            <Stack.Screen name="Scaner" component={ScanerScreen} options={{title: 'Einscannen'}}  />
+            <Stack.Screen name="ScannerInput" component={ScannerInputScreen} options={{title: 'Zurück'}} />
+            <Stack.Screen name="ScannerCode" component={ScannerCodeScreen} options={{title: 'Zurück'}} />
         </Stack.Navigator>
     );
 };

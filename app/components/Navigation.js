@@ -6,17 +6,11 @@ import { useContext } from 'react';
 const Stack = createNativeStackNavigator();
 
 const Navigation = () => {
-  const {userInfo, splashLoading} = useContext(AuthContext);
+  const {userInfo} = useContext(AuthContext);
 
   return (
     <Stack.Navigator>
-    {splashLoading ? (
-      <Stack.Screen
-        name="Splash Screen"
-        component={SplashScreen}
-        options={{headerShown: false}}
-      />
-    ) : userInfo.data?.id ? (
+    {userInfo.data?.id ? (
       <Stack.Screen name="Home" component={HomeScreen} />
     ) : (
       <>

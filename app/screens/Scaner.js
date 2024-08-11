@@ -9,7 +9,7 @@ export default function ScannerScreen({navigation}) {
     <SafeAreaView style={styles.container}>
       <ScrollView style={styles.containerInner}>
         <View style={{flex: 1,paddingBottom: 100}}>
-              <BigTitle>Einscannen</BigTitle>
+              {/* <BigTitle>Einscannen</BigTitle> */}
               <View style={styles.imgContainer}>
                 <Image source={require('../../assets/qr_code.png')} />
               </View>

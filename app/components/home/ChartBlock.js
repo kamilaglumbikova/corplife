@@ -33,9 +33,9 @@ export default function ChartBlock({data}) {
         backgroundGradientTo: "#08130D",
         backgroundGradientToOpacity: 0.5,
         color: (opacity = 1) => `rgba(26, 255, 146, ${opacity})`,
-        strokeWidth: 2, // optional, default 3
+        strokeWidth: 2,
         barPercentage: 0.5,
-        useShadowColorFromDataset: false // optional
+        useShadowColorFromDataset: false 
     };
     return (
         <View style={styles.info}>
@@ -57,12 +57,13 @@ export default function ChartBlock({data}) {
                 <View style={styles.chart}>
                     <PieChart
                         data={dataChart}
-                        width={screenWidth}
+                        width={300}
                         height={140}
                         chartConfig={chartConfig}
                         accessor={"population"}
                         backgroundColor={"transparent"}
                         center={[0, 0]}
+                        hasLegend={false}
                     />
                 </View>
             </View>
@@ -79,14 +80,15 @@ const styles = StyleSheet.create({
     dataInfo: {
         backgroundColor: theme.colors.gray,
         marginTop: 25,
+        flex:1,
+        borderRadius: 20,
         width: '100%',
-        borderRadius: 15,
+        justifyContent: 'space-between',
         flexDirection: 'row',
         padding: 20,
     },
     chartInfo: {
-        flex: 1,
-        marginRight: 5
+        flex: 1
     },
     chart: {
         width: 140,

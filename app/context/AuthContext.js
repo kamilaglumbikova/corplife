@@ -1,20 +1,18 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
-// import axios from 'axios';
 import React, {createContext, useEffect, useState} from 'react';
-// import {BASE_URL} from '../config';
+import { API_URL } from '../utils/api';
 
 export const AuthContext = createContext();
 
 export const AuthProvider = ({children}) => {
   const [userInfo, setUserInfo] = useState({});
   const [isLoading, setIsLoading] = useState(false);
-  const [splashLoading, setSplashLoading] = useState(false);
   const [message, setMessage] = useState('');
 
   const login = async (email, password) => {
     setIsLoading(true);
 
-    const url = "https://live.corplife.at/rest/V1/auth";
+    const url = API_URL + "/auth";
     const options = {
     method: "POST",
     headers: {
@@ -58,60 +56,17 @@ export const AuthProvider = ({children}) => {
 
   const logout = () => {
     setIsLoading(true);
-
     console.log('logout');
     AsyncStorage.removeItem('userInfo');
     setUserInfo({});
     setIsLoading(false);
-
-    // axios
-    //   .post(
-    //     `${BASE_URL}/logout`,
-    //     {},
-    //     {
-    //       headers: {Authorization: `Bearer ${userInfo.access_token}`},
-    //     },
-    //   )
-    //   .then(res => {
-    //     console.log(res.data);
-    //     AsyncStorage.removeItem('userInfo');
-    //     setUserInfo({});
-    //     setIsLoading(false);
-    //   })
-    //   .catch(e => {
-    //     console.log(`logout error ${e}`);
-    //     setIsLoading(false);
-    //   });
   };
-
-  const isLoggedIn = async () => {
-    try {
-      setSplashLoading(true);
-
-      let userInfo = await AsyncStorage.getItem('userInfo');
-      userInfo = JSON.parse(userInfo);
-
-      if (userInfo) {
-        setUserInfo(userInfo);
-      }
-
-      setSplashLoading(false);
-    } catch (e) {
-      setSplashLoading(false);
-      console.log(`is logged in error ${e}`);
-    }
-  };
-
-  useEffect(() => {
-    isLoggedIn();
-  }, []);
 
   return (
     <AuthContext.Provider
       value={{
         isLoading,
         userInfo,
-        splashLoading,
         message,
         setMessage,
         login,

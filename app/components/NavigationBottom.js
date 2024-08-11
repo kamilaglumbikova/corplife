@@ -28,7 +28,7 @@ const screenOptions = {
 }
 
 const NavigationBottom = () => {
-    const {userInfo, splashLoading} = useContext(AuthContext);
+    const {userInfo} = useContext(AuthContext);
 
   return (
     <NavigationContainer>
